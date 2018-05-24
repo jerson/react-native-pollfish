@@ -44,15 +44,15 @@ public class RNPollfishModule extends ReactContextBaseJavaModule implements Life
 
     @Override
     public void onHostResume() {
-        if (params != null) {
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    Log.d(TAG, ">> Initializing Pollfish");
-                    PollFish.initWith(getCurrentActivity(), params);
-                }
-            });
-        }
+//        if (params != null) {
+//            new Handler(Looper.getMainLooper()).post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Log.d(TAG, ">> Initializing Pollfish");
+//                    PollFish.initWith(getCurrentActivity(), params);
+//                }
+//            });
+//        }
     }
 
     @Override
