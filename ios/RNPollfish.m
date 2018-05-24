@@ -52,7 +52,10 @@ RCT_EXPORT_METHOD(initialize :(NSString *)apiKey :(BOOL *)debugMode  :(BOOL *)cu
              andDeveloperKey: apiKey
                andDebuggable: debugMode
                andCustomMode: customMode
-              andRequestUUID: userId];
+              andRequestUUID: userId
+           andUserAttributes: nil
+             andSurveyFormat: [self parseFormat:format]];
+    
 }
 
 RCT_EXPORT_METHOD(show)
@@ -78,6 +81,31 @@ RCT_EXPORT_METHOD(surveyAvailable)
     NSLog(@"isPollfishPresent");
     NSLog([Pollfish isPollfishPresent]?@"YES":@"NO");
     [Pollfish isPollfishPresent];
+}
+
+#pragma mark utils
+
+
+- (int)parseFormat:(NSString *)name
+{
+    
+    switch (name) {
+        case "BASIC":
+            return SurveyFormatBasic;
+            break;
+        case "PLAYFUL":
+            return SurveyFormatPlayful;
+            break;
+        case "THIRD_PARTY":
+            return SurveyFormatThirdParty;
+            break;
+        case "RANDOM":
+            return SurveyFormatRandom;
+            break;
+        default:
+            return SurveyFormatRandom;
+            break;
+    }
 }
 
 #pragma mark delgate events
