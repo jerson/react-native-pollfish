@@ -1,13 +1,10 @@
 package co.squaretwo.pollfish;
 
-/**
- * Created by ben on 1/13/17.
- */
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.facebook.react.bridge.WritableMap;
-
 import android.support.annotation.Nullable;
+
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class EventManager {
 

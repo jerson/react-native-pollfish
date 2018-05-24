@@ -55,3 +55,10 @@ fastlane/screenshots
 # node
 node_modules/**/*
 .idea
+
+# Android/IJ
+#
+.idea
+.gradle
+local.properties
+*.iml
