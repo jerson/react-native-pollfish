@@ -46,7 +46,7 @@ const removeAllListeners = () => {
 
 module.exports = {
   ...RNPollfish,
-  initialize: (key,  releaseMode, customMode, userId) => RNPollfish.initialize(key, releaseMode, customMode, userId),
+  initialize: (key,  releaseMode, customMode, format, userId) => RNPollfish.initialize(key, releaseMode, customMode, format, userId),
   show: () => RNPollfish.show(),
   hide: () => RNPollfish.hide(),
   destroy: () => RNPollfish.destroy(),

@@ -15,6 +15,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.pollfish.constants.SurveyFormat;
 import com.pollfish.interfaces.PollfishClosedListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
 import com.pollfish.interfaces.PollfishSurveyCompletedListener;
@@ -64,6 +65,21 @@ public class RNPollfishModule extends ReactContextBaseJavaModule implements Life
         // Activity `onDestroy`
     }
 
+    private SurveyFormat parseFormat(String name) {
+        switch (name) {
+            case "BASIC":
+                return SurveyFormat.BASIC;
+            case "PLAYFUL":
+                return SurveyFormat.PLAYFUL;
+            case "THIRD_PARTY":
+                return SurveyFormat.THIRD_PARTY;
+            case "RANDOM":
+                return SurveyFormat.RANDOM;
+            default:
+                return SurveyFormat.RANDOM;
+        }
+    }
+
     @Override
     public String getName() {
         return "RNPollfish";
@@ -73,9 +89,11 @@ public class RNPollfishModule extends ReactContextBaseJavaModule implements Life
     public void initialize(final String apiKey,
                            final boolean debugMode,
                            final boolean autoMode,
+                           final String format,
                            final String uuid) {
 
         params = new ParamsBuilder(apiKey)
+                .surveyFormat(this.parseFormat(format))
                 .releaseMode(!debugMode) // Due to inconsitency with iOS, we negate whatever is passed in for production
                 .customMode(autoMode) // Set true to avoid auto-popup behavior
                 .requestUUID(uuid) // Unique user identifier, passed back in the callback

@@ -33,7 +33,7 @@ RCT_EXPORT_MODULE()
 #pragma mark exported methods
 
 // Initialize Pollfish
-RCT_EXPORT_METHOD(initialize :(NSString *)apiKey :(BOOL *)debugMode  :(BOOL *)customMode :(NSString *)userId)
+RCT_EXPORT_METHOD(initialize :(NSString *)apiKey :(BOOL *)debugMode  :(BOOL *)customMode :(NSString *)format :(NSString *)userId)
 {
     if (!isInitialized) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(surveyNotAvailable) name:@"PollfishSurveyNotAvailable" object:nil];
