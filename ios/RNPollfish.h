@@ -10,7 +10,7 @@
 #import "RCTEventEmitter.h"
 #endif
 
-#import <Pollfish/Pollfish.h>
+#import <pollfish/Pollfish.h>
 
 @interface RNPollfish : RCTEventEmitter <RCTBridgeModule>
 

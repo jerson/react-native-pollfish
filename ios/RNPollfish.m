@@ -88,24 +88,19 @@ RCT_EXPORT_METHOD(surveyAvailable)
 
 - (int)parseFormat:(NSString *)name
 {
+  if ([name isEqualToString:@"BASIC"]) {
+    return SurveyFormatBasic;
+  } else if ([name isEqualToString:@"PLAYFUL"]) {
+    return SurveyFormatPlayful;
+  } else if ([name isEqualToString:@"THIRD_PARTY"]) {
+    return SurveyFormatThirdParty;
+  } else if ([name isEqualToString:@"RANDOM"]) {
+    return SurveyFormatRandom;
+  }else{
     
-    switch (name) {
-        case "BASIC":
-            return SurveyFormatBasic;
-            break;
-        case "PLAYFUL":
-            return SurveyFormatPlayful;
-            break;
-        case "THIRD_PARTY":
-            return SurveyFormatThirdParty;
-            break;
-        case "RANDOM":
-            return SurveyFormatRandom;
-            break;
-        default:
-            return SurveyFormatRandom;
-            break;
-    }
+    return SurveyFormatRandom;
+  }
+ 
 }
 
 #pragma mark delgate events
