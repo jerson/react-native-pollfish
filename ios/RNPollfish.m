@@ -73,7 +73,7 @@ RCT_EXPORT_METHOD(hide)
 RCT_EXPORT_METHOD(destroy)
 {
     NSLog(@"destroy Pollfish");
-    [Pollfish destroy];
+    //[Pollfish destroy];
 }
 
 RCT_EXPORT_METHOD(surveyAvailable)
